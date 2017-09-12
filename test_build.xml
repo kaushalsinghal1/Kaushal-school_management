@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<project name="hibernate-tutorial" default="run" basedir=".">
+	<!-- set global properties for this build -->
+	<property name="srcdir" value="src" />
+	<property name="framework" value="framework" />
+	<property name="jardir" value="jars" />
+	<property name="builddir" value="build" />
+	<property name="libdir" value="lib" />
+	<!--	<property name="package" value="com/visualbuilder/hibernate" />-->
+	<path id="cp">
+		<fileset dir="${libdir}">
+			<include name="*.jar" />
+			<include name="." />
+			<!--<include name="hibernate/lib/*.jar" />-->
+		</fileset>
+	</path>
+	<target name="init">
+		<mkdir dir="${builddir}" />
+		<mkdir dir="${jardir}" />
+	</target>
+	<target name="clean">
+		<delete quiet="true" dir="${builddir}" />
+		<delete quiet="true" dir="${jardir}" />
+	</target>
+	<target name="compile" depends="init" description="Necessary to run core jar_console in advance">
+
+		<javac srcdir="${framework}" destdir="${builddir}" classpathref="cp" encoding="shift_jis" verbose="off" debug="${debug}" optimize="on" deprecation="on">
+			<include name="com/banti/**/*.java" />
+		</javac>
+
+		<javac srcdir="${srcdir}" destdir="${builddir}" classpathref="cp" encoding="shift_jis" verbose="off" debug="${debug}" optimize="on" deprecation="off">
+			<classpath>
+				<pathelement path="${builddir}" />
+			</classpath>
+			<include name="com/school/**/*.java" />
+		</javac>
+		<!--<javac srcdir="${srcdir}" destdir="${builddir}" classpathref="cp">
+			<include name="${package}/*.java" />
+			<include name="${package}/client/*.java" />
+		</javac>-->
+	</target>
+	<target name="jar" depends="compile">
+		<jar destfile="${jardir}/app.jar">
+			<manifest>
+				<attribute name="Bundle-Version" value="1.0" />
+				<attribute name="Bundle-Name" value="School Appliction" />
+				<attribute name="Bundle-Vendor" value="Tulip Solutions Inc." />
+				
+				<attribute name="Main-Class" value="com.school.console.SchoolMain" />
+			</manifest>
+			<fileset dir="${builddir}">
+				<include name="com/**/*.class" />
+			</fileset>
+			<fileset dir="${srcdir}">
+				<!--	<include name="${package}/*.hbm.xml" />-->
+				<include name="*.cfg.xml" />
+			</fileset>
+		</jar>
+	</target>
+	<target name="run" depends="jar">
+		<java classname="com.school.console.SchoolMain" classpathref="cp">
+			<classpath>
+				<pathelement location="${jardir}/app.jar" />
+			</classpath>
+		</java>
+	</target>
+</project>

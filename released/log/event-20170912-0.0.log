@@ -1,0 +1,12 @@
+12/9/17 11:37:26 PM  EVENT FINE[1]: Configuration of logger :
+12/9/17 11:37:26 PM  EVENT FINE[1]: EXCEPTION_LEVEL = INFO
+12/9/17 11:37:26 PM  EVENT FINE[1]: EVENT_LEVEL = FINE
+12/9/17 11:37:26 PM  EVENT FINE[1]: DEBUG_LEVEL = INFO
+12/9/17 11:37:26 PM  EVENT FINE[1]: Acutal values used for logger :
+12/9/17 11:37:26 PM  EVENT FINE[1]: debugLogFile = log/debug.log
+12/9/17 11:37:26 PM  EVENT FINE[1]: eventLogFile = log/event.log
+12/9/17 11:37:26 PM  EVENT FINE[1]: exceptionLogFile = log/exception.log
+12/9/17 11:37:26 PM  EVENT FINE[1]: count = 100
+12/9/17 11:37:26 PM  EVENT FINE[1]: limit = 0
+12/9/17 11:37:26 PM  EVENT FINE[1]: appendFile = false
+12/9/17 11:37:26 PM  EVENT FINE[1]: debugMod = true

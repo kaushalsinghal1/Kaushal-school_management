@@ -1,0 +1,45 @@
+Seed     is SCHV10
+Num      is 10
+Length   is 7
+Begin    is 0
+End      is 6
+To encipher, 8 Bytes [00E3EA5F] are used from[SCHV100E3EA5F]
+Encrypted:AC356156B658F820
+To encipher, 8 Bytes [0188F1B0] are used from[SCHV10188F1B0]
+Encrypted:602EE7584655233A
+To encipher, 8 Bytes [02DEFFEF] are used from[SCHV102DEFFEF]
+Encrypted:B174854B197ACCC0
+To encipher, 8 Bytes [03F2AF97] are used from[SCHV103F2AF97]
+Encrypted:5BB79403A31D762C
+To encipher, 8 Bytes [04B2B08D] are used from[SCHV104B2B08D]
+Encrypted:AAA7F06ADE82B90B
+To encipher, 8 Bytes [051ECDC3] are used from[SCHV1051ECDC3]
+Encrypted:2BC6826E7066DFB2
+To encipher, 8 Bytes [06CBEB7F] are used from[SCHV106CBEB7F]
+Encrypted:FE33004E328D395F
+To encipher, 8 Bytes [07C40872] are used from[SCHV107C40872]
+Encrypted:FB489FC46A2B7897
+To encipher, 8 Bytes [089B7E3F] are used from[SCHV1089B7E3F]
+Encrypted:8B493F960ADA6C92
+To encipher, 8 Bytes [09A9EAFC] are used from[SCHV109A9EAFC]
+Encrypted:0F13B93857CFB65C
+License Code:SCHV10-E3EA5F-AC356156B658F820-0
+Decrypted Cipher:4
+License Code:SCHV10-88F1B0-602EE7584655233A-1
+Decrypted Cipher:4
+License Code:SCHV10-DEFFEF-B174854B197ACCC0-2
+Decrypted Cipher:4
+License Code:SCHV10-F2AF97-5BB79403A31D762C-3
+Decrypted Cipher:4
+License Code:SCHV10-B2B08D-AAA7F06ADE82B90B-4
+Decrypted Cipher:4
+License Code:SCHV10-1ECDC3-2BC6826E7066DFB2-5
+Decrypted Cipher:4
+License Code:SCHV10-CBEB7F-FE33004E328D395F-6
+Decrypted Cipher:4
+License Code:SCHV10-C40872-FB489FC46A2B7897-7
+Decrypted Cipher:4
+License Code:SCHV10-9B7E3F-8B493F960ADA6C92-8
+Decrypted Cipher:4
+License Code:SCHV10-A9EAFC-0F13B93857CFB65C-9
+Decrypted Cipher:4

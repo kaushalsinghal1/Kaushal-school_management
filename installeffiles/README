@@ -1,0 +1,24 @@
+#################################
+Software Requirements
+1. Installed JRE1.6.0 or above
+2. Postgres SQlserver 9.2 or later
+
+######################################
+Pre- requisites for installation
+JRE 1.6.0 or later installed
+
+###############################
+Steps to Setup
+##################################################
+
+1. If Postgres SQl Server is not installed 
+       Install postgres sql server
+2. Open Postgres Sql server "program files\postgres SQL\PG AdminIII" and Create new DB example: schoo1DB
+3. Open config\hibernate.cfg file from installed directory
+4. Set database name in following property
+   <property name="connection.url">jdbc:postgresql://localhost:5432/schoolDB</property>
+
+###################################################
+Default user name and password
+User name: admin
+Password: admin

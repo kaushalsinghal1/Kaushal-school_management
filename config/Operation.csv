@@ -1,0 +1,10 @@
+#OperationCode,admin,user(1 ->allow, 0->disallow)
+account.rgister,1,0,
+admissaion.fee.discount,1,0,
+tution.fee.discount,1,0,
+other.fee.discount,1,0,
+bus.fee.discount,1,0;
+student.register,1,1,
+student.update,1,0,
+student.delete,1,0,
+student.fee.deposite,1,1,

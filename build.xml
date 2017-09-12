@@ -1,0 +1,118 @@
+<?xml version="1.0"  encoding="shift_jis"?>
+
+<project name="blacklist" default="debug_TestBuild" basedir=".">
+
+	<target name="debug_TestBuild" depends="init,clean, debug_on, compile_school_application, jar_school_application" />
+	<target name="init">
+		<tstamp />
+		<property name="src" value="src" />
+		<property name="framework" value="framework" />
+		<property name="classes" value="classes" />
+		<property name="released" value="released" />
+		<property name="packages" value="packages" />
+		<property name="lib.dir" value="lib" />
+		<property name="version" value="1.1.0" />
+		<property name="shortversion" value="110" />
+	</target>
+	<target name="clean" depends="init">
+		<delete>
+			<fileset dir="${src}" includes="**/*.class" />
+		</delete>
+		<delete dir="${classes}" />
+	</target>
+	<target name="debug_on">
+		<property name="debug" value="on" />
+	</target>
+
+	<target name="debug_off">
+		<property name="debug" value="off" />
+	</target>
+
+	<target name="compile_school_application" depends="init" description="Necessary to run core jar_console in advance">
+		<mkdir dir="${classes}" />
+
+		<javac srcdir="${framework}" destdir="${classes}" encoding="shift_jis" verbose="off" debug="${debug}" optimize="on" deprecation="on">
+			<classpath>
+				<pathelement path="${classes}" />
+				<pathelement location="${lib.dir}/activation.jar" />
+				<pathelement location="${lib.dir}/dsn.jar" />
+				<pathelement location="${lib.dir}/imap.jar" />
+				<pathelement location="${lib.dir}/mail.jar" />
+				<pathelement location="${lib.dir}/mailapi.jar" />
+				<pathelement location="${lib.dir}/pop3.jar" />
+				<pathelement location="${lib.dir}/smtp.jar" />
+			</classpath>
+			<include name="com/banti/**/*.java" />
+
+		</javac>
+
+		<javac srcdir="${src}" destdir="${classes}" encoding="shift_jis" verbose="off" debug="${debug}" optimize="on" deprecation="off">
+			<classpath>
+				<pathelement path="${classes}" />
+				<pathelement location="${lib.dir}/antlr.jar" />
+				<pathelement location="${lib.dir}/commons-codec-1.7.jar" />
+				<pathelement location="${lib.dir}/dom4j-1.6.1.jar" />
+				<pathelement location="${lib.dir}/ehcache-core-2.6.2.jar" />
+				<pathelement location="${lib.dir}/hibernate-commons-annotations-4.0.1.Final.jar" />
+				<pathelement location="${lib.dir}/hibernate-core-4.1.9.Final.jar" />
+				<pathelement location="${lib.dir}/hibernate-entitymanager-4.1.9.Final.jar" />
+				<pathelement location="${lib.dir}/hibernate-envers-4.1.9.Final.jar" />
+				<pathelement location="${lib.dir}/hibernate-jpa-2.0-api-1.0.1.Final.jar" />
+				<pathelement location="${lib.dir}/javassist-3.17.1-GA.jar" />
+				<pathelement location="${lib.dir}/jboss-logging-3.1.0.GA.jar" />
+				<pathelement location="${lib.dir}/jboss-transaction-api_1.1_spec-1.0.0.Final.jar" />
+				<pathelement location="${lib.dir}/l2fprod-common-all.jar" />
+				<pathelement location="${lib.dir}/OfficeLnFs_2.7.jar" />
+				<pathelement location="${lib.dir}/postgresql-9.2-1002.jdbc4.jar" />
+				<pathelement location="${lib.dir}/sqljdbc4.jar" />
+			</classpath>
+			<include name="com/school/**/*.java" />
+		</javac>
+
+
+
+		<!--	<javac srcdir="${src}/shared_src" destdir="${classes}" encoding="shift_jis" verbose="off" debug="${debug}" optimize="on" deprecation="on">
+			<classpath>
+				<pathelement path="${classes}" />
+				<pathelement location="lib/koban_console.jar" />
+			</classpath>
+			<include name="com/cysols/mobius/shared/communication/ManagerConsoleCodeConstants.java" />
+			<include name="com/cysols/mobius/policy/tool/*.java" />
+			<include name="com/cysols/mobius/alarm/AlarmConstants.java" />
+			<include name="com/cysols/mobius/policy/BlackListedTerminalRule.java" />
+		</javac>
+-->
+	</target>
+
+	<target name="jar_school_application" depends="init">
+		<mkdir dir="${released}" />
+
+		<copy todir="${classes}" overwrite="true">
+			<fileset dir="${src}">
+				<include name="com/school/resource/images/*.*" />
+			</fileset>
+			<fileset dir="${framework}">
+				<include name="com/banti/framework/cwt/images/*.gif" />
+				<include name="com/banti/framework/platform/images/*.*" />
+			</fileset>
+		</copy>
+		<jar jarfile="${released}/school_application-1.0.jar" basedir="${classes}">
+			<manifest>
+				<attribute name="Bundle-Version" value="1.0" />
+				<attribute name="Bundle-Name" value="School Appliction" />
+				<attribute name="Bundle-Vendor" value="Tulip Solutions Inc." />
+				<attribute name="Class-Path" value="lib/antlr-2.7.7.jar lib/commons-codec-1.7.jar lib/dom4j-1.6.1.jar lib/ehcache-core-2.6.2.jar lib/hibernate-commons-annotations-4.0.1.Final.jar lib/hibernate-core-4.1.9.Final.jar lib/hibernate-entitymanager-4.1.9.Final.jar lib/hibernate-envers-4.1.9.Final.jar lib/hibernate-jpa-2.0-api-1.0.1.Final.jar lib/javassist-3.17.1-GA.jar lib/jboss-logging-3.1.0.GA.jar lib/jboss-transaction-api_1.1_spec-1.0.0.Final.jar lib/l2fprod-common-all.jar lib/OfficeLnFs_2.7.jar lib/postgresql-9.2-1002.jdbc4.jar lib/activation.jar libdsn.jar lib/imap.jar lib/mail.jar lib/mailapi.jar lib/pop3.jar lib/smtp.jar lib/sqljdbc4.jar" />
+				<attribute name="Main-Class" value="com.school.console.SchoolMain" />
+			</manifest>
+			<fileset dir="${classes}" includes="**/*.class" />
+			<!--<include name="com/cysols/mobius/blacklist/tool/*.class" />
+			<zipgroupfileset dir="${lib.dir}" includes="**/*.jar" />
+			<include name="**/**.class"/>
+			<include name="com/cysols/mobius/console/blacklist/*.class" />-->
+		</jar>
+	</target>
+
+</project>
+
+
+
