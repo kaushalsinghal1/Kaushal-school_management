@@ -528,8 +528,8 @@ public class StudentFeesDetailsPanel extends JPanel implements ActionListener {
 		feeDetails.setActivityFee(other);
 		feeDetails.setActivityFeeDiscount(otherDis);
 		feeDetails.setActivityFeeDeposite(0);
-		feeDetails.setBusFee(other);
-		feeDetails.setBusFeeDiscount(otherDis);
+		feeDetails.setBusFee(bus);
+		feeDetails.setBusFeeDiscount(busDis);
 		feeDetails.setBusFeeDeposite(0);
 		feeDetails.setStudentDetails(studentDetails);
 		feeDetails.setSessionDetails(studentDetails.getSessionDetails());
