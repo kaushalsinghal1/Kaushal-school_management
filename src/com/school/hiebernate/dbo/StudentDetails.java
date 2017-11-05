@@ -49,6 +49,12 @@ public class StudentDetails implements Cloneable {
 	@OneToOne
 	@JoinColumn(name = "IMAGE_ID")
 	private StudentImageDetails studentImageDetails;
+	@Column(name = "AADHAR")
+	private String aadhar;
+	@Column(name = "GENDER")
+	private String gender;
+	@Column(name = "STUDENT_CAST")
+	private String cast;
 
 	public int getStudentId() {
 		return studentId;
@@ -208,6 +214,29 @@ public class StudentDetails implements Cloneable {
 
 	public void setStudentImageDetails(StudentImageDetails studentImageDetails) {
 		this.studentImageDetails = studentImageDetails;
+	}
+	public String getAadhar() {
+		return aadhar;
+	}
+
+	public void setAadhar(String aadhar) {
+		this.aadhar = aadhar;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getCast() {
+		return cast;
+	}
+
+	public void setCast(String cast) {
+		this.cast = cast;
 	}
 
 	@Column(name = "CITY")

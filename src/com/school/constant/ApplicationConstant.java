@@ -34,6 +34,8 @@ public interface ApplicationConstant {
 
 	// private static long lastReadConf;
 
-	public static final String OCCUPATION[] = { "Business", "Employee",
-			"Self Employee" };
+	public static final String OCCUPATION[] = { "Business", "Employee", "Govt Employee", 
+			"Self Employee" , "Farmer"};
+
+	public static final String CASTS[] = { "General", "OBC", "SC", "ST", "Other"};
 }
